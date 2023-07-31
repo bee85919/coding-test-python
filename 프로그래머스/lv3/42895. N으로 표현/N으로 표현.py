@@ -9,7 +9,6 @@ def solution(n,num):
             for x in stack[j]:
                 for y in stack[i-j-1]: 
                     if y!=0: stack[i].update({x+y, x-y, x*y, x//y})
-                    else: stack[i].add(x)
                     
         if num in stack[i]: return i+1
 
