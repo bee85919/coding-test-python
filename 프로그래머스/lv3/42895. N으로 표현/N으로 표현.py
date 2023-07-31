@@ -1,15 +1,16 @@
-def solution(N,num):
+def solution(n,num):
     
-    if N == num: return 1
+    stack = [set([int(str(n)*i)]) for i in range(1,9)] 
+    
+    if n == num: return 1    
 
-    sta = [set([int(str(N) * i)]) for i in range(1, 9)]
-
-    for i in range(1,len(sta)):
-        
+    for i in range(1,len(stack)):
         for j in range(i):
-            for a in sta[j]:
-                for z in sta[i-j-1]: sta[i].update({a+z,a-z,a*z,a//z}) if z!=0 else sta[i].add(a)
+            for x in stack[j]:
+                for y in stack[i-j-1]: 
+                    if y!=0: stack[i].update({x+y, x-y, x*y, x//y})
+                    else: stack[i].add(x)
                     
-        if num in sta[i]: return i+1
+        if num in stack[i]: return i+1
 
-    return -1  
+    return -1
