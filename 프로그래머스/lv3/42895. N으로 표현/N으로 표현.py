@@ -1,15 +1,15 @@
-def solution(n,num):
+def solution(n,num):   
     
-    stack = [set([int(str(n)*i)]) for i in range(1,9)] 
-    
-    if n == num: return 1    
+    if n == num: return 1  
 
-    for i in range(1,len(stack)):
+    def cal(x,y): return {x+y, x-y, x*y, x//y if y else x}
+
+    s = [{int(str(n)*i)} for i in range(1,8+1)]
+    n = len(s)
+    for i in range(n):
         for j in range(i):
-            for x in stack[j]:
-                for y in stack[i-j-1]: 
-                    if y!=0: stack[i].update({x+y, x-y, x*y, x//y})
-                    
-        if num in stack[i]: return i+1
-
+            for row in s[j]:
+                for col in s[i-1-j]: s[i].update(cal(col,row))    
+        if num in s[i]: return i+1
+    
     return -1
