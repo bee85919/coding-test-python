@@ -1,9 +1,1 @@
-def solution(num, target):
-    dic = {0 : 1}
-    for n in num:
-        temp = {}
-        for val, cnt in dic.items():
-            temp[val+n] = temp.get(val+n, 0) + cnt
-            temp[val-n] = temp.get(val-n, 0) + cnt
-        dic = temp
-    return dic.get(target, 0)
+def solution(num, n): return 1 if not num and n == 0 else 0 if not num else solution(num[1:], n-num[0]) + solution(num[1:], n+num[0])
