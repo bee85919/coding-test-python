@@ -1,8 +1,10 @@
-def solution(players, calls):    
-    player_dict = {player: rank for rank, player in enumerate(players)}
-    rank_dict = {rank: player for rank, player in enumerate(players)}    
-    for call in calls:
-        rank = player_dict[call]        
-        player_dict[rank_dict[rank-1]], player_dict[rank_dict[rank]] = player_dict[rank_dict[rank]], player_dict[rank_dict[rank-1]]
-        rank_dict[rank-1], rank_dict[rank] = rank_dict[rank], rank_dict[rank-1]    
-    return list(rank_dict.values())
+def solution(runner, passings):
+    rank = {name: rank for rank, name in enumerate(runner)}
+
+    for passing in passings:
+        idx = rank[passing]
+        if idx == 0: continue
+        runner[idx], runner[idx-1] = runner[idx-1], runner[idx]
+        rank[runner[idx]], rank[runner[idx-1]] = idx, idx-1
+
+    return runner
