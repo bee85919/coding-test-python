@@ -1,13 +1,12 @@
 from collections import Counter
 
 
-N = int(input())
-CARD = list(map(int, input().split()))
-M = int(input())
-TARGET = list(map(int, input().split()))
+n = int(input())
+card = list(map(int, input().split()))
+m = int(input())
+target = list(map(int, input().split()))
 
 
-CNT, ANS = Counter(CARD), []
-for T in TARGET:
-    ANS.append(str(CNT[T]))
-print(" ".join(ANS))
+cnt = Counter(card)
+ans = [str(cnt[t]) for t in target]
+print(" ".join(ans))
