@@ -1,10 +1,10 @@
 import sys
 
-N, K = map(int, sys.stdin.readline().split())
-i, ANS, LIST = 0, [], [n for n in range(1, N+1)]
-while LIST:
-    i += K-1
-    if i >= len(LIST):
-        i %= len(LIST)
-    ANS.append(str(LIST.pop(i)))
-print('<', ', '.join(ANS), '>', sep='')
+
+n, k = map(int, sys.stdin.readline().split())
+i, ans, lst = 0, [], [n for n in range(1, n+1)]
+while lst:
+    i += k-1
+    if i >= len(lst): i %= len(lst)
+    ans.append(str(lst.pop(i)))
+print('<', ', '.join(ans), '>', sep='')
