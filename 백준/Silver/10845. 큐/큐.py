@@ -2,13 +2,12 @@ import sys
 input=sys.stdin.readline
 
 
-N = int(input())
-Q = []
-for _ in range(N):
+n, que = int(input()), []
+for _ in range(n):
     q = input().split()
-    if q[0] == 'push': Q.append(q[1])
-    elif q[0] == 'pop': print(Q.pop(0) if Q else -1)
-    elif q[0] == 'size': print(len(Q))
-    elif q[0] == 'empty': print(0 if Q else 1)
-    elif q[0] == 'front': print(Q[0] if Q else -1)
-    elif q[0] == 'back': print(Q[-1] if Q else -1)
+    if   q[0] == 'push' : que.append(q[1])
+    elif q[0] == 'pop'  : print(que.pop(0) if que else -1)
+    elif q[0] == 'size' : print(len(que))
+    elif q[0] == 'empty': print(0 if que else 1)
+    elif q[0] == 'front': print(que[0] if que else -1)
+    elif q[0] == 'back' : print(que[-1] if que else -1)
