@@ -1,11 +1,9 @@
 from collections import deque
 
-N = int(input())
-deque = deque([n for n in range(1, N+1)])
 
-for _ in range(N-1):
+n = int(input())
+deque = deque([i for i in range(1, n+1)])
+for _ in range(n-1):
     deque.popleft()
-    num = deque.popleft()
-    deque.append(num)
-
+    deque.append(deque.popleft())
 print(deque[0])
