@@ -1,13 +1,6 @@
-def count_diff(board, start_row, start_col, pattern):
-    count = 0
-    for i in range(8):
-        for j in range(8):
-            if board[start_row + i][start_col + j] != pattern[i][j]:
-                count += 1
-    return count
+import sys
+input = sys.stdin.readline
 
-N, M = map(int, input().split())
-board = [list(input().strip()) for _ in range(N)]
 
 pattern1 = [
     "WBWBWBWB",
@@ -20,6 +13,7 @@ pattern1 = [
     "BWBWBWBW"
 ]
 
+
 pattern2 = [
     "BWBWBWBW",
     "WBWBWBWB",
@@ -31,12 +25,24 @@ pattern2 = [
     "WBWBWBWB"
 ]
 
-min_diff = float('inf')
 
-for i in range(N - 7):
-    for j in range(M - 7):
-        diff1 = count_diff(board, i, j, pattern1)
-        diff2 = count_diff(board, i, j, pattern2)
-        min_diff = min(min_diff, diff1, diff2)
+def cnt_dif(board, row, col, pattern):
+    count = 0
+    for i in range(8):
+        for j in range(8):
+            if board[row + i][col + j] != pattern[i][j]:
+                count += 1
+    return count
 
-print(min_diff)
+
+n, m = map(int, input().split())
+board = [list(input().strip()) for _ in range(n)]
+
+
+min_dif = float('inf')
+for i in range(n-7):
+    for j in range(m-7):
+        min_dif = min(min_dif, cnt_dif(board, i, j, pattern1), cnt_dif(board, i, j, pattern2))
+
+
+print(min_dif)
