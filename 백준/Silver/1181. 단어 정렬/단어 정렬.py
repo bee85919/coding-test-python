@@ -1,8 +1,5 @@
-N = int(input())
-List = []
-for _ in range(N):
-    List.append(input())
-
-List = sorted(list(set(List)), key=lambda x: (len(x), x))
-for i in range(len(List)):
-    print(List[i])
+n = int(input())
+lst = [input() for _ in range(n)]
+lst = set(lst)
+lst = sorted(list(lst), key=lambda x: (len(x), x))
+for i in range(len(lst)): print(lst[i])
