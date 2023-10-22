@@ -1,8 +1,8 @@
-N, LIST = int(input()), []
-for i in range(N):
-    LIST.append(input().split())
-LIST.sort(key=lambda x: int(x[0]))
+import sys
+input = sys.stdin.readline
 
 
-for i in range(N):
-    print(int(LIST[i][0]), LIST[i][1])
+n = int(input())
+n_list = [input().split() for _ in range(n)]
+n_list = sorted(n_list, key=lambda x: int(x[0]))
+for i in range(n): print(int(n_list[i][0]), n_list[i][1])
