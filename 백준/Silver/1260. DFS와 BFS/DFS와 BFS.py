@@ -37,6 +37,14 @@ def dfs_visit(v, visit):
     return visit
 
 
+def bfs(v, graph, visit):
+    queue, visit = bfs_init(v, visit)
+    while queue:
+        v, queue = bfs_print(v, queue)
+        for i in sorted(graph[v]):
+            visit, queue = bfs_visit(i, visit, queue)
+
+
 def bfs_init(v, visit):
     queue = deque([v])
     visit[v] = True
@@ -54,14 +62,6 @@ def bfs_visit(i, visit, queue):
         queue.append(i)
         visit[i] = True
     return visit, queue
-
-
-def bfs(v, graph, visit):
-    queue, visit = bfs_init(v, visit)
-    while queue:
-        v, queue = bfs_print(v, queue)
-        for i in sorted(graph[v]):
-            visit, queue = bfs_visit(i, visit, queue)
 
 
 n, m, v = map(int, input().split())
