@@ -1,3 +1,2 @@
 def solution(a, d, included):
-    lst = [k for k, v in enumerate(included) if v == True]
-    return sum([(a + d*i) for i in lst])
+    return sum([(a + d*i) for i, b in enumerate(included) if b])
