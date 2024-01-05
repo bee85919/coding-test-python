@@ -1,2 +1,2 @@
-def solution(string, index):
-    return ''.join([string[i] for i in index])
+def solution(str_list, idx_list):
+    return ''.join([str_list[idx] for idx in idx_list])
