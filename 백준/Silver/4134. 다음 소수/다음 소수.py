@@ -2,10 +2,6 @@ import sys
 input = sys.stdin.readline
 
 
-n = int(input())
-num = [int(input()) for _ in range(n)]
-
-
 def ch(n):
     for i in range(2, int(n**0.5)+1):
         if n%i == 0:
@@ -22,7 +18,9 @@ def dp(n, di):
     return ch_n
 
 
-for n in num:
+m = int(input())
+for _ in range(m):
+    n = int(input())
     while True:
         if n == 0 or n == 1:
             print(2)
