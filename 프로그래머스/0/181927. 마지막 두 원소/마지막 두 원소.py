@@ -1,6 +1,6 @@
 def solution(li):
-    num1 = int(li[-1])
-    num2 = int(li[-2])
-    num = num1 - num2 if num1 > num2 else num1 * 2
-    li.append(num)
+    n1 = li[-1]
+    n2 = li[-2]
+    n = n1 - n2 if n1 > n2 else n1 * 2
+    li.append(n)
     return li
