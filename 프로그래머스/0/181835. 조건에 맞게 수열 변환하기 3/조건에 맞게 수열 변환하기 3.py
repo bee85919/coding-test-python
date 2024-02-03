@@ -1,9 +1,6 @@
 def solution(arr, k):
-    ans = []
     if k%2 == 1:
-        for a in arr:
-            ans.append(a*k)
+        ans = [k*a for a in arr]
     elif k%2 == 0:
-        for a in arr:
-            ans.append(a+k)
+        ans = [k+a for a in arr]
     return ans
